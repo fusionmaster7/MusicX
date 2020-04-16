@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-
 import Login from "./Components/Login";
 import Callback from "./Components/Callback";
 
