@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import { Context } from "../Store/Context";
 
 const Callback = () => {
   const getHashParams = () => {
@@ -13,7 +14,9 @@ const Callback = () => {
     }
     return hashParams;
   };
+  const [state, dispatch] = useContext(Context);
   useEffect(() => {
+    console.log(state.user);
     const params = getHashParams();
     const token = params.access_token;
     console.log(token);
