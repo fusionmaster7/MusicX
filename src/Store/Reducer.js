@@ -1,9 +1,10 @@
 const Reducer = (state, action) => {
-  const [type, payload] = action;
+  let { type, payload } = action;
   switch (type) {
     case "LOGIN":
       return {
         ...state,
+        isAuth: true,
         user: payload,
       };
     default:

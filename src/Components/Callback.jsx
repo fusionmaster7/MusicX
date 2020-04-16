@@ -1,5 +1,8 @@
 import React, { useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { Context } from "../Store/Context";
+import axios from "axios";
+import "./Styles/Callback.css";
 
 const Callback = () => {
   const getHashParams = () => {
@@ -14,14 +17,34 @@ const Callback = () => {
     }
     return hashParams;
   };
+  let history = useHistory();
   const [state, dispatch] = useContext(Context);
   useEffect(() => {
     console.log(state.user);
     const params = getHashParams();
     const token = params.access_token;
-    console.log(token);
+    if (token && !state.user) {
+      axios
+        .get("https://api.spotify.com/v1/me", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          const userObj = {
+            display_name: res.data.display_name,
+            id: res.data.id,
+            uri: res.data.uri,
+            images: res.data.images,
+            followers: res.data.followers,
+          };
+          dispatch({ type: "LOGIN", payload: { ...userObj } });
+          history.push("/dashboard");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   });
-  return <h1>Call back here</h1>;
+  return <div>Loading User data...</div>;
 };
 
 export default Callback;
