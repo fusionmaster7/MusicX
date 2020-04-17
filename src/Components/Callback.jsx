@@ -44,7 +44,7 @@ const Callback = () => {
         });
     }
   });
-  return <div>Loading User data...</div>;
+  return <div className="callback-div">Loading User data...</div>;
 };
 
 export default Callback;
