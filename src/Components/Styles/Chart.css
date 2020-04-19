@@ -1,0 +1,58 @@
+body {
+  overflow-x: hidden;
+}
+
+.charts-container {
+  margin-top: 30px;
+}
+
+.charts-heading {
+  font-family: "Lato", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.charts-sep {
+  border: none;
+  margin-left: 0px;
+  width: 180px;
+  height: 7px;
+  background-color: #3ca1f9;
+}
+
+.charts {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: row;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  margin-right: 40px;
+  border-radius: 5px;
+}
+
+.chart:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.chart-title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.chart-artist {
+  font-family: "Raleway", sans-serif;
+  margin-top: 3px;
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+}

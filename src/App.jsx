@@ -2,7 +2,7 @@ import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import Login from "./Components/Login";
 import Callback from "./Components/Callback";
-import Dashboard from "./Components/Dashboard";
+import Dashboard from "./Components/Dashboard/Dashboard";
 import Store from "./Store/Context";
 
 const App = () => {

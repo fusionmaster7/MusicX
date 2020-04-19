@@ -1,0 +1,25 @@
+.search {
+  margin-top: 20px;
+  border-radius: 10px;
+  width: 450px;
+  background-color: whitesmoke;
+  box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+  padding: 15px;
+}
+
+.search-music {
+  border-color: #8b75fd;
+  outline: none;
+  width: 400px;
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 550;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.search-music:focus {
+  border-color: #f75f6c;
+  outline: none;
+}
