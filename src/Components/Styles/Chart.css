@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .charts-container {
@@ -55,4 +56,16 @@ body {
   font-weight: 600;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
+}
+
+.chart-img {
+  width: 200px;
+  height: 200px;
+}
+
+.charts-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
 }

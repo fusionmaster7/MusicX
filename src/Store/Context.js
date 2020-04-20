@@ -4,6 +4,13 @@ import Reducer from "./Reducer";
 const initialState = {
   isAuth: false,
   user: null,
+  nowPlaying: {
+    trackName: "",
+    trackArtist: "",
+    url: "https://via.placeholder.com/150",
+    playing: false,
+  },
+  charts: [{}, {}, {}, {}, {}],
 };
 
 const Store = ({ children }) => {

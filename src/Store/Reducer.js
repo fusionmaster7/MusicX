@@ -7,6 +7,26 @@ const Reducer = (state, action) => {
         isAuth: true,
         user: payload,
       };
+    case "PLAYING":
+      return {
+        ...state,
+        nowPlaying: payload,
+      };
+    case "PLAY":
+      return {
+        ...state,
+        playing: true,
+      };
+    case "PAUSE":
+      return {
+        ...state,
+        playing: false,
+      };
+    case "CHARTS":
+      return {
+        ...state,
+        charts: [...payload],
+      };
     default:
       return state;
   }

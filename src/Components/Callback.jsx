@@ -31,10 +31,10 @@ const Callback = () => {
         .then((res) => {
           const userObj = {
             display_name: res.data.display_name,
+            email: res.data.email,
             id: res.data.id,
             uri: res.data.uri,
-            images: res.data.images,
-            followers: res.data.followers,
+            token: token,
           };
           dispatch({ type: "LOGIN", payload: { ...userObj } });
           history.push("/dashboard");
@@ -43,7 +43,7 @@ const Callback = () => {
           console.log(error);
         });
     }
-  });
+  }, [state.isAuth]);
   return <div className="callback-div">Loading User data...</div>;
 };
 

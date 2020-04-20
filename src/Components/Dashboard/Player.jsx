@@ -1,10 +1,29 @@
 //Component for rendering Music Player
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import axios from "axios";
 import "../Styles/Player.css";
-
-import { MdPlayArrow, MdSkipNext, MdSkipPrevious } from "react-icons/md";
+import { Context } from "../../Store/Context";
 
 const Player = () => {
+  const [state, dispatch] = useContext(Context);
+  const updatePlayer = () => {
+    axios
+      .get("https://api.spotify.com/v1/me/player/currently-playing", {
+        headers: { Authorization: `Bearer ${state.user.token}` },
+      })
+      .then((res) => {
+        const playerObj = {
+          trackName: res.data.item.name,
+          trackArtist: res.data.item.artists[0].name,
+          url: res.data.item.album.images[0].url,
+          playing: true,
+        };
+        dispatch({ type: "PLAYING", payload: { ...playerObj } });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="pl-container">
       <div className="pl-heading">Now Playing</div>
@@ -13,31 +32,14 @@ const Player = () => {
         <div className="track-info">
           <div>
             <img
-              src="https://via.placeholder.com/140"
+              src={state.nowPlaying.url}
               alt="Now Playing"
               className="pl-img"
             />
           </div>
-          <div id="t-name">Track Name</div>
-          <div id="t-artist">Track Artist</div>
+          <div id="t-name">{state.nowPlaying.trackName}</div>
+          <div id="t-artist">{state.nowPlaying.trackArtist}</div>
           <div>Playback line here</div>
-        </div>
-        <div className="pl-btns">
-          <div>
-            <button className="pl-btn">
-              <MdSkipPrevious />
-            </button>
-          </div>
-          <div>
-            <button className="pl-btn">
-              <MdPlayArrow />
-            </button>
-          </div>
-          <div>
-            <button className="pl-btn">
-              <MdSkipNext />
-            </button>
-          </div>
         </div>
       </div>
     </div>
