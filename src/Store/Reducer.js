@@ -12,20 +12,15 @@ const Reducer = (state, action) => {
         ...state,
         nowPlaying: payload,
       };
-    case "PLAY":
-      return {
-        ...state,
-        playing: true,
-      };
-    case "PAUSE":
-      return {
-        ...state,
-        playing: false,
-      };
     case "CHARTS":
       return {
         ...state,
         charts: [...payload],
+      };
+    case "TRACKS":
+      return {
+        ...state,
+        tracks: [...payload],
       };
     default:
       return state;

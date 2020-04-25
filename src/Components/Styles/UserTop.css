@@ -37,10 +37,14 @@
   margin-top: 20px;
   border-radius: 3px;
   background-color: whitesmoke;
-  justify-content: space-evenly;
   box-shadow: 4px 4px 8px rgb(163, 177, 198, 0.6),
     -4px -4px 8px rgba(255, 255, 255, 0.5);
   display: flex;
+  justify-content: space-between;
+}
+
+.track:hover {
+  cursor: pointer;
 }
 
 .track-div {
@@ -48,6 +52,7 @@
   margin-bottom: auto;
   font-family: "Raleway", sans-serif;
   font-size: 18px;
+  width: 25%;
   font-weight: 550;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -55,6 +60,8 @@
 .track-img {
   border-radius: 5px;
   margin-top: 5px;
+  width: 40px;
+  height: 40px;
 }
 
 #save-icon {

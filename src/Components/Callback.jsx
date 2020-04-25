@@ -43,7 +43,7 @@ const Callback = () => {
           console.log(error);
         });
     }
-  }, [state.isAuth]);
+  }, [dispatch, history, state.user]);
   return <div className="callback-div">Loading User data...</div>;
 };
 

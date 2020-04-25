@@ -6,28 +6,28 @@ import { Context } from "../../Store/Context";
 
 const Player = () => {
   const [state, dispatch] = useContext(Context);
-  const updatePlayer = () => {
-    axios
-      .get("https://api.spotify.com/v1/me/player/currently-playing", {
+  const nowPlaying = async () => {
+    const res = await axios.get(
+      "https://api.spotify.com/v1/me/player/currently-playing",
+      {
         headers: { Authorization: `Bearer ${state.user.token}` },
-      })
-      .then((res) => {
-        const playerObj = {
-          trackName: res.data.item.name,
-          trackArtist: res.data.item.artists[0].name,
-          url: res.data.item.album.images[0].url,
-          playing: true,
-        };
-        dispatch({ type: "PLAYING", payload: { ...playerObj } });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      }
+    );
+    const playerObj = {
+      trackName: res.data.item.name,
+      trackArtist: res.data.item.artists[0].name,
+      url: res.data.item.album.images[0].url,
+      playing: true,
+    };
+    dispatch({ type: "PLAYING", payload: { ...playerObj } });
   };
+  useEffect(() => {
+    setInterval(nowPlaying, 20000);
+  }, []);
   return (
     <div className="pl-container">
       <div className="pl-heading">Now Playing</div>
-      <div className="pl-subheading">6 in queue</div>
+      <div className="pl-subheading">3 in queue</div>
       <div className="pl">
         <div className="track-info">
           <div>

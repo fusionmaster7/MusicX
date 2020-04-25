@@ -16,9 +16,10 @@ const Chart = () => {
     );
   };
   let chartList = [];
-  useEffect(() => {
-    axios
-      .get("https://api.spotify.com/v1/browse/new-releases", {
+  const getCharts = async () => {
+    const res = await axios.get(
+      "https://api.spotify.com/v1/browse/new-releases",
+      {
         params: {
           country: "IN",
           limit: "5",
@@ -26,19 +27,21 @@ const Chart = () => {
         headers: {
           Authorization: `Bearer ${state.user.token}`,
         },
-      })
-      .then((res) => {
-        const resData = [...res.data.albums.items];
-        resData.forEach((e) => {
-          const newObj = {
-            name: e.name,
-            artist: e.artists[0].name,
-            image: e.images[0].url,
-          };
-          chartList.push(newObj);
-        });
-        dispatch({ type: "CHARTS", payload: [...chartList] });
-      });
+      }
+    );
+    const resData = [...res.data.albums.items];
+    resData.forEach((e) => {
+      const newObj = {
+        name: e.name,
+        artist: e.artists[0].name,
+        image: e.images[0].url,
+      };
+      chartList.push(newObj);
+    });
+    dispatch({ type: "CHARTS", payload: [...chartList] });
+  };
+  useEffect(() => {
+    getCharts();
   }, []);
   return (
     <div className="charts-container">
