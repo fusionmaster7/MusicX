@@ -35,6 +35,7 @@ const Chart = () => {
         name: e.name,
         artist: e.artists[0].name,
         image: e.images[0].url,
+        id: e.id,
       };
       chartList.push(newObj);
     });

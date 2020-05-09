@@ -8,7 +8,6 @@ const initialState = {
     trackName: "",
     trackArtist: "",
     url: "https://via.placeholder.com/150",
-    playing: false,
   },
   charts: [{}, {}, {}, {}, {}],
   tracks: [{}, {}, {}, {}, {}],

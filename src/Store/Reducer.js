@@ -12,6 +12,16 @@ const Reducer = (state, action) => {
         ...state,
         nowPlaying: payload,
       };
+    case "PAUSE":
+      return {
+        ...state,
+        playing: false,
+      };
+    case "PLAY":
+      return {
+        ...state,
+        playing: true,
+      };
     case "CHARTS":
       return {
         ...state,
