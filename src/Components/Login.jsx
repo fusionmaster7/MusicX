@@ -45,7 +45,7 @@ class Login extends React.Component {
           </div>
           <hr className="sep" />
           <div className="lgn">
-            <a href="http://localhost:5000/login">
+            <a href="https://music-backend.glitch.me/login">
               <button className="lgn-btn">Login Now</button>
             </a>
           </div>
