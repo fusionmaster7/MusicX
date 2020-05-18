@@ -24,12 +24,12 @@ import {
 const Dashboard = () => {
   const [state, dispatch] = useContext(Context);
   let history = useHistory();
-  useEffect(() => {
+  /*useEffect(() => {
     console.log(state.user);
     if (!state.isAuth || state.user == null) {
       history.push("/");
     }
-  });
+  });*/
   if (!state.isAuth) {
     return <h1>User Not found</h1>;
   } else {
